@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "2a3752cb-8c8e-4411-b46b-9dc20311a79a",
+		"name": "TransmediaAPIAutomation ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25567509"
+	},
+	"item": [
+		{
+			"name": "Test Type 1",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ahmedradwan052@gmail.com\", \r\n    \"password\": \"cse3434rara****WEB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/rest/user/login",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"rest",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket Item List(Verify Basket Item)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"verify that 1 item\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data.id).to.eql(13);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NDk5MywidXNlcm5hbWUiOiIiLCJlbWFpbCI6ImFobWVkcmFkd2FuMDUyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiNzZhNmJjMjJiOTUwY2JmMzNmMGYyMDM2MTJhZDk1ZWEiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoidW5kZWZpbmVkIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzI6MDUuOTk2ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzM6MzMuMjgxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTY4NDQwNjE3NiwiZXhwIjoxNjg0NDI0MTc2fQ.mpprfAohF7b8hlhymGy3G8hEZUWSq3Inwg4YyJYDbhAvWySffTNfpxciImi-mEe8Xk_5MW_LMiqQ7nPekSeyR_qJdodYcY3J7cmzfhw3f3u3kplDBlZJc27TH1jD9h0LGgDHBuOXXylCU0ZE1TZ9BWLm-l9Pf9dsrV0LPgwQOx4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/rest/basket/13",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"rest",
+								"basket",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item In Basket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NDk5MywidXNlcm5hbWUiOiIiLCJlbWFpbCI6ImFobWVkcmFkd2FuMDUyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiNzZhNmJjMjJiOTUwY2JmMzNmMGYyMDM2MTJhZDk1ZWEiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoidW5kZWZpbmVkIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzI6MDUuOTk2ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzM6MzMuMjgxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTY4NDQwNjE3NiwiZXhwIjoxNjg0NDI0MTc2fQ.mpprfAohF7b8hlhymGy3G8hEZUWSq3Inwg4YyJYDbhAvWySffTNfpxciImi-mEe8Xk_5MW_LMiqQ7nPekSeyR_qJdodYcY3J7cmzfhw3f3u3kplDBlZJc27TH1jD9h0LGgDHBuOXXylCU0ZE1TZ9BWLm-l9Pf9dsrV0LPgwQOx4",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"ProductId\": 24,\r\n        \"BasketId\": \"13\",\r\n        \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/api/BasketItems/",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"BasketItems",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Type 2",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ahmedradwan052@gmail.com\", \r\n    \"password\": \"cse3434rara****WEB\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/rest/user/login",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"rest",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Basket Item List(Verify Basket Item)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"id1\", jsonData.data.Products[0].BasketItem.id);\r",
+									"\r",
+									"pm.test(\"Check After Delete Item from Basket\", function (){\r",
+									"    pm.expect(jsonData.data.Products.length).to.eql(1);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NDk5MywidXNlcm5hbWUiOiIiLCJlbWFpbCI6ImFobWVkcmFkd2FuMDUyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiNzZhNmJjMjJiOTUwY2JmMzNmMGYyMDM2MTJhZDk1ZWEiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoidW5kZWZpbmVkIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzI6MDUuOTk2ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzM6MzMuMjgxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTY4NDQwNjE3NiwiZXhwIjoxNjg0NDI0MTc2fQ.mpprfAohF7b8hlhymGy3G8hEZUWSq3Inwg4YyJYDbhAvWySffTNfpxciImi-mEe8Xk_5MW_LMiqQ7nPekSeyR_qJdodYcY3J7cmzfhw3f3u3kplDBlZJc27TH1jD9h0LGgDHBuOXXylCU0ZE1TZ9BWLm-l9Pf9dsrV0LPgwQOx4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/rest/basket/13",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"rest",
+								"basket",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item In Basket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NDk5MywidXNlcm5hbWUiOiIiLCJlbWFpbCI6ImFobWVkcmFkd2FuMDUyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiNzZhNmJjMjJiOTUwY2JmMzNmMGYyMDM2MTJhZDk1ZWEiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoidW5kZWZpbmVkIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzI6MDUuOTk2ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzM6MzMuMjgxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTY4NDQwOTc1OCwiZXhwIjoxNjg0NDI3NzU4fQ.mU-Vtc7Gdh-muiQBvK1E85TTB9aniVyXKNwUcnX9Kf1bhnKDGeBVMahGkoYKuSyDfLb6miLFgupLZcIjk0bdnB_FzUwa49oqX04wbXKyJBmWyBZ3xM9a_oXUvKeFVD-ohUmbqUuHGdjHfewlmD6YjxpgxFB4VxAqctu2k14oxwY",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ProductId\": 6,\r\n    \"BasketId\": \"13\",\r\n    \"quantity\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/api/BasketItems/",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"BasketItems",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdGF0dXMiOiJzdWNjZXNzIiwiZGF0YSI6eyJpZCI6NDk5MywidXNlcm5hbWUiOiIiLCJlbWFpbCI6ImFobWVkcmFkd2FuMDUyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiNzZhNmJjMjJiOTUwY2JmMzNmMGYyMDM2MTJhZDk1ZWEiLCJyb2xlIjoiY3VzdG9tZXIiLCJkZWx1eGVUb2tlbiI6IiIsImxhc3RMb2dpbklwIjoidW5kZWZpbmVkIiwicHJvZmlsZUltYWdlIjoiL2Fzc2V0cy9wdWJsaWMvaW1hZ2VzL3VwbG9hZHMvZGVmYXVsdC5zdmciLCJ0b3RwU2VjcmV0IjoiIiwiaXNBY3RpdmUiOnRydWUsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzI6MDUuOTk2ICswMDowMCIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTggMTA6MzM6MzMuMjgxICswMDowMCIsImRlbGV0ZWRBdCI6bnVsbH0sImlhdCI6MTY4NDQwNjE3NiwiZXhwIjoxNjg0NDI0MTc2fQ.mpprfAohF7b8hlhymGy3G8hEZUWSq3Inwg4YyJYDbhAvWySffTNfpxciImi-mEe8Xk_5MW_LMiqQ7nPekSeyR_qJdodYcY3J7cmzfhw3f3u3kplDBlZJc27TH1jD9h0LGgDHBuOXXylCU0ZE1TZ9BWLm-l9Pf9dsrV0LPgwQOx4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://juice-shop.herokuapp.com/api/BasketItems/{{id1}}",
+							"protocol": "https",
+							"host": [
+								"juice-shop",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"BasketItems",
+								"{{id1}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
